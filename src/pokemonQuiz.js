@@ -14,7 +14,6 @@ const PokemonQuiz = () => {
     const [message, setMessage] = useState("");
     const [gameOver, setGameOver] = useState(false);
     const [answerSelected, setAnswer] = useState(false);
-    const [showBacklog, setShowBacklog] = useState(false);
 
     // run once when a switch of event happens
     useEffect(() => {
@@ -22,12 +21,6 @@ const PokemonQuiz = () => {
             loadQuestion();
         }
     }, [gameOver]);
-
-    useEffect(() => {
-        const storedCapturedPokemon =
-            JSON.parse(localStorage.getItem("capturedPokemon")) || [];
-        setCaptured(storedCapturedPokemon);
-    }, []);
 
     // save state when finished
     // Fisher-Yates Shuffle
@@ -102,10 +95,6 @@ const PokemonQuiz = () => {
         setGameOver(false);
         setMessage("");
         loadQuestion();
-    };
-
-    const toggleBacklog = () => {
-        setShowBacklog(!showBacklog);
     };
 
     // UI of game
