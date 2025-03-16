@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/Pokemon-Guesser-Game/static/css/main.f855e6bc.css",
+    "main.js": "/Pokemon-Guesser-Game/static/js/main.2d54ed38.js",
+    "static/js/453.fbe9f80f.chunk.js": "/Pokemon-Guesser-Game/static/js/453.fbe9f80f.chunk.js",
+    "static/media/logo.svg": "/Pokemon-Guesser-Game/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/Pokemon-Guesser-Game/index.html",
+    "main.f855e6bc.css.map": "/Pokemon-Guesser-Game/static/css/main.f855e6bc.css.map",
+    "main.2d54ed38.js.map": "/Pokemon-Guesser-Game/static/js/main.2d54ed38.js.map",
+    "453.fbe9f80f.chunk.js.map": "/Pokemon-Guesser-Game/static/js/453.fbe9f80f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f855e6bc.css",
+    "static/js/main.2d54ed38.js"
+  ]
+}
