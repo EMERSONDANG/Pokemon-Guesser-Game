@@ -99,7 +99,7 @@ const PokemonQuiz = () => {
 
     // UI of game
     return (
-        <div style={{ textAlign: "center" }}>
+        <div className="main">
             <h1>Pokémon Quiz</h1>
 
             {pokemon && (

@@ -9,7 +9,3 @@ export const getRandomPokemon = async() => {
     const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${randomId}`);
     return response.data;
 }
-
-export const getPokemonType = async() => {
-    
-}
