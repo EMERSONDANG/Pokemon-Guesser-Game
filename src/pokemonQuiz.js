@@ -47,7 +47,7 @@ const PokemonQuiz = () => {
                 correctPoke,
                 wrongPokeOne,
                 wrongPokeTwo,
-                { name: "Skip" },
+                { name: "skip" },
             ])
         );
         setMessage("");
@@ -69,7 +69,7 @@ const PokemonQuiz = () => {
                 "capturedPokemon",
                 JSON.stringify(updatedCaptured)
             ); // Store in localStorage
-        } else if (choice.name === "Skip") {
+        } else if (choice.name === "skip") {
             setMessage("The answer was " + pokemon.name);
         } else {
             setMessage("Wrong answer! Answer was " + pokemon.name);
@@ -89,7 +89,7 @@ const PokemonQuiz = () => {
         }
     };
 
-    // reset all arrays to empty
+    // reset all arrays to empty to restart
     const resetGame = () => {
         setCaptured([]);
         setGameOver(false);
@@ -129,7 +129,7 @@ const PokemonQuiz = () => {
             <h2>Captured Pokémon</h2>
             <ul>
                 {captured.map((poke) => (
-                    <li key={poke.name}>{poke.name}</li>
+                    <span>{poke.name}<br></br></span>
                 ))}
             </ul>
         </div>
