@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { getRandomPokemon } from "./api";
 import "./pokemonQuiz.css"
 
+
 const PokemonQuiz = () => {
     // array with two elements, [state, function_to_update_state]
     // useState sets the state element in array to whatever specified
@@ -18,6 +19,10 @@ const PokemonQuiz = () => {
     const [gameOver, setGameOver] = useState(false);
     // checking if a button was clicked
     const [answerSelected, setAnswer] = useState(false);
+    // save current pokemon to history
+    const [teamHistory, setTeamHistory] = useState([]);
+   
+
 
     // run once when a switch of event happens
     // useEffect keeps track of the gameOver state
