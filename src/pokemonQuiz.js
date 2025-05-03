@@ -1,21 +1,26 @@
 // useEffect, run code after performing an event
 import React, { useState, useEffect } from "react";
 import { getRandomPokemon } from "./api";
+import "./pokemonQuiz.css"
 
 const PokemonQuiz = () => {
     // array with two elements, [state, function_to_update_state]
     // useState sets the state element in array to whatever specified
     // default initializations
     const [pokemon, setPokemon] = useState(null);
-    // options is buttons on screen
+    // options is buttons on screen, pull pokemon from API
     const [options, setOptions] = useState([]);
-    // holds pokemon JSON objects
+    // renders captured pokemon that is caught
     const [captured, setCaptured] = useState([]);
+    // renders message if user selects correct, wrong or skip
     const [message, setMessage] = useState("");
+    // checks if 6 pokemon caught
     const [gameOver, setGameOver] = useState(false);
+    // checking if a button was clicked
     const [answerSelected, setAnswer] = useState(false);
 
     // run once when a switch of event happens
+    // useEffect keeps track of the gameOver state
     useEffect(() => {
         if (!gameOver) {
             loadQuestion();
@@ -65,10 +70,6 @@ const PokemonQuiz = () => {
             const updatedCaptured = captured.concat(pokemon);
             setCaptured(updatedCaptured);
             setMessage("You captured: " + pokemon.name);
-            localStorage.setItem(
-                "capturedPokemon",
-                JSON.stringify(updatedCaptured)
-            ); // Store in localStorage
         } else if (choice.name === "skip") {
             setMessage("The answer was " + pokemon.name);
         } else {
@@ -76,7 +77,7 @@ const PokemonQuiz = () => {
         }
 
         // check if 6 pokemon reached
-        if (captured.length + 1 == 6) {
+        if (captured.length + 1 === 6) {
             setMessage("Game over! You caught 6 Pokemon!");
             setGameOver(true);
             setTimeout(() => {
@@ -100,7 +101,7 @@ const PokemonQuiz = () => {
     // UI of game
     return (
         <div className="main">
-            <h1>Pokémon Quiz</h1>
+            <h1 style={{textAlign: "center"}}>Pokémon Quiz</h1>
 
             {pokemon && (
                 <div>
@@ -108,9 +109,14 @@ const PokemonQuiz = () => {
                     <img
                         src={pokemon.sprites.front_default}
                         alt={pokemon.name}
-                        style={{ width: "200px", height: "200px" }}
+                        style={{ 
+                            width: "150px", 
+                            height: "150px", 
+                            display: "block",
+                            margin: "0 auto"
+                        }}
                     />
-                    <div>
+                    <div className="poke-buttons">
                         {options.map((option) => (
                             <button
                                 key={option.name}
@@ -124,10 +130,10 @@ const PokemonQuiz = () => {
                 </div>
             )}
 
-            <h3>{message}</h3>
+            <h3 style={{textAlign: "center"}}>{message}</h3>
 
-            <h2>Captured Pokémon</h2>
-            <ul>
+            <h2 style={{textAlign: "center"}}>Captured Pokémon</h2>
+            <ul className="capture-list">
                 {captured.map((poke) => (
                     <span>{poke.name}<br></br></span>
                 ))}
