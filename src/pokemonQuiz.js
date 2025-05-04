@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { getRandomPokemon } from "./api";
 import "./pokemonQuiz.css"
+import { addToHistory } from "./model.js";
 
 
 const PokemonQuiz = () => {
@@ -17,12 +18,8 @@ const PokemonQuiz = () => {
     const [message, setMessage] = useState("");
     // checks if 6 pokemon caught
     const [gameOver, setGameOver] = useState(false);
-    // checking if a button was clicked
+    // checking if a button was clicked, ensures for no duplicate clicks
     const [answerSelected, setAnswer] = useState(false);
-    // save current pokemon to history
-    const [teamHistory, setTeamHistory] = useState([]);
-   
-
 
     // run once when a switch of event happens
     // useEffect keeps track of the gameOver state
@@ -65,12 +62,13 @@ const PokemonQuiz = () => {
     };
 
     const handleAnswer = (choice) => {
+        // if correct answer already clicked, dont allow user to keep clicking
         if (answerSelected === true) {
             return;
         }
 
         setAnswer(true);
-
+        
         if (choice.name === pokemon.name) {
             const updatedCaptured = captured.concat(pokemon);
             setCaptured(updatedCaptured);
@@ -97,6 +95,7 @@ const PokemonQuiz = () => {
 
     // reset all arrays to empty to restart
     const resetGame = () => {
+        addToHistory(captured);
         setCaptured([]);
         setGameOver(false);
         setMessage("");
@@ -126,7 +125,7 @@ const PokemonQuiz = () => {
                             <button
                                 key={option.name}
                                 onClick={() => handleAnswer(option)}
-                                disabled={captured.length >= 6}
+                                disabled={captured.length > 5}
                             >
                                 {option.name}
                             </button>

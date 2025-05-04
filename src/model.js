@@ -1,3 +1,8 @@
-import { useState } from 'react';
+// model that interacts with PokemonQuiz and PokemonHistory component
 
-const [teamHistory, setTeamHistory] = useState([]);
+let teamHistory = [];
+
+export function addToHistory(pokemonTeamArray) {
+    teamHistory.push(pokemonTeamArray);
+}
+
