@@ -1,9 +1,8 @@
 // useEffect, run code after performing an event
 import React, { useState, useEffect } from "react";
 import { getRandomPokemon } from "./api";
-import "./pokemonQuiz.css"
+import "./pokemonQuiz.css";
 import { addToHistory } from "./model.js";
-
 
 const PokemonQuiz = () => {
     // array with two elements, [state, function_to_update_state]
@@ -68,7 +67,7 @@ const PokemonQuiz = () => {
         }
 
         setAnswer(true);
-        
+
         if (choice.name === pokemon.name) {
             const updatedCaptured = captured.concat(pokemon);
             setCaptured(updatedCaptured);
@@ -95,7 +94,6 @@ const PokemonQuiz = () => {
 
     // reset all arrays to empty to restart
     const resetGame = () => {
-        addToHistory(captured);
         setCaptured([]);
         setGameOver(false);
         setMessage("");
@@ -105,7 +103,7 @@ const PokemonQuiz = () => {
     // UI of game
     return (
         <div className="main">
-            <h1 style={{textAlign: "center"}}>Pokémon Quiz</h1>
+            <h1 style={{ textAlign: "center" }}>Pokémon Quiz</h1>
 
             {pokemon && (
                 <div>
@@ -113,11 +111,11 @@ const PokemonQuiz = () => {
                     <img
                         src={pokemon.sprites.front_default}
                         alt={pokemon.name}
-                        style={{ 
-                            width: "150px", 
-                            height: "150px", 
+                        style={{
+                            width: "150px",
+                            height: "150px",
                             display: "block",
-                            margin: "0 auto"
+                            margin: "0 auto",
                         }}
                     />
                     <div className="poke-buttons">
@@ -134,12 +132,15 @@ const PokemonQuiz = () => {
                 </div>
             )}
 
-            <h3 style={{textAlign: "center"}}>{message}</h3>
+            <h3 style={{ textAlign: "center" }}>{message}</h3>
 
-            <h2 style={{textAlign: "center"}}>Captured Pokémon</h2>
+            <h2 style={{ textAlign: "center" }}>Captured Pokémon</h2>
             <ul className="capture-list">
                 {captured.map((poke) => (
-                    <span>{poke.name}<br></br></span>
+                    <span>
+                        {poke.name}
+                        <br></br>
+                    </span>
                 ))}
             </ul>
         </div>
