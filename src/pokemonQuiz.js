@@ -69,8 +69,9 @@ const PokemonQuiz = () => {
         setAnswer(true);
 
         if (choice.name === pokemon.name) {
-            const updatedCaptured = captured.concat(pokemon);
-            setCaptured(updatedCaptured);
+            // an array to keep track of captured pokemon
+            const updateCaptured = captured.concat(pokemon);
+            setCaptured(updateCaptured);
             setMessage("You captured: " + pokemon.name);
         } else if (choice.name === "skip") {
             setMessage("The answer was " + pokemon.name);
@@ -79,8 +80,11 @@ const PokemonQuiz = () => {
         }
 
         // check if 6 pokemon reached
-        if (captured.length + 1 === 6) {
-            setMessage("Game over! You caught 6 Pokemon!");
+        if (captured.length === 5) {
+            setMessage("Congrats! You caught 6 Pokemon!");
+            // capture the last one, append to array then append to master array
+            const updateCaptured = captured.concat(pokemon);
+            addToHistory(updateCaptured);
             setGameOver(true);
             setTimeout(() => {
                 resetGame();
