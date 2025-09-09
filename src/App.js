@@ -11,7 +11,7 @@ function App() {
 
   return (
     <div className="App">
-      <button className="show-button" onClick={toggleHistory}> Show History </button>
+      <button className="show-button" onClick={toggleHistory}> Show Past Teams </button>
       <PokemonQuiz /> 
 
       {showHistory && <PokemonHistory onClose={toggleHistory}/>}

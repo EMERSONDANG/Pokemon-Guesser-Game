@@ -111,7 +111,7 @@ const PokemonQuiz = () => {
 
             {pokemon && (
                 <div>
-                    <h2>Which Pokémon is this?</h2>
+                    <h2 style={{ textAlign: "center"}}>Which Pokémon is this?</h2>
                     <img
                         src={pokemon.sprites.front_default}
                         alt={pokemon.name}
@@ -138,7 +138,7 @@ const PokemonQuiz = () => {
 
             <h3 style={{ textAlign: "center" }}>{message}</h3>
 
-            <h2 style={{ textAlign: "center" }}>Captured Pokémon</h2>
+            {captured.length > 0 && <h2 style={{ textAlign: "center" }}>Captured Pokémon</h2>}
             <ul className="capture-list">
                 {captured.map((poke) => (
                     <span>
