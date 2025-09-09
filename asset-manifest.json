@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Pokemon-Guesser-Game/static/css/main.d8eceb86.css",
-    "main.js": "/Pokemon-Guesser-Game/static/js/main.09d68de9.js",
+    "main.css": "/Pokemon-Guesser-Game/static/css/main.9e906961.css",
+    "main.js": "/Pokemon-Guesser-Game/static/js/main.b5faaabe.js",
     "static/js/453.fbe9f80f.chunk.js": "/Pokemon-Guesser-Game/static/js/453.fbe9f80f.chunk.js",
     "index.html": "/Pokemon-Guesser-Game/index.html",
-    "main.d8eceb86.css.map": "/Pokemon-Guesser-Game/static/css/main.d8eceb86.css.map",
-    "main.09d68de9.js.map": "/Pokemon-Guesser-Game/static/js/main.09d68de9.js.map",
+    "main.9e906961.css.map": "/Pokemon-Guesser-Game/static/css/main.9e906961.css.map",
+    "main.b5faaabe.js.map": "/Pokemon-Guesser-Game/static/js/main.b5faaabe.js.map",
     "453.fbe9f80f.chunk.js.map": "/Pokemon-Guesser-Game/static/js/453.fbe9f80f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d8eceb86.css",
-    "static/js/main.09d68de9.js"
+    "static/css/main.9e906961.css",
+    "static/js/main.b5faaabe.js"
   ]
 }
