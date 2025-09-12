@@ -24,7 +24,9 @@ const PokemonQuiz = () => {
     // useEffect keeps track of the gameOver state
     useEffect(() => {
         if (!gameOver) {
-            loadQuestion();
+            setTimeout(() => {
+                loadQuestion();
+        }, 2000);
         }
     }, [gameOver]);
 
@@ -73,27 +75,28 @@ const PokemonQuiz = () => {
             const updateCaptured = captured.concat(pokemon);
             setCaptured(updateCaptured);
             setMessage("You captured: " + pokemon.name);
+
+            // check if 6 pokemon reached
+            if (updateCaptured.length === 6) {
+                setMessage("Congrats! You caught 6 Pokemon!");
+                // capture the last one, append to array then append to master array
+                // const updateCaptured = captured.concat(pokemon);
+                addToHistory(updateCaptured);
+                setGameOver(true);
+                setTimeout(() => {
+                    resetGame();
+                }, 1900);
+            } 
         } else if (choice.name === "skip") {
             setMessage("The answer was " + pokemon.name);
         } else {
             setMessage("Wrong answer! Answer was " + pokemon.name);
         }
 
-        // check if 6 pokemon reached
-        if (captured.length === 5) {
-            setMessage("Congrats! You caught 6 Pokemon!");
-            // capture the last one, append to array then append to master array
-            const updateCaptured = captured.concat(pokemon);
-            addToHistory(updateCaptured);
-            setGameOver(true);
-            setTimeout(() => {
-                resetGame();
-            }, 5000);
-        } else {
-            setTimeout(() => {
-                loadQuestion();
-            }, 2000);
-        }
+        setGameOver(false);
+        setTimeout(() => {
+            if (!gameOver) loadQuestion();
+        }, 2000);
     };
 
     // reset all arrays to empty to restart
@@ -101,7 +104,7 @@ const PokemonQuiz = () => {
         setCaptured([]);
         setGameOver(false);
         setMessage("");
-        loadQuestion();
+        // loadQuestion();
     };
 
     // UI of game
