@@ -22,5 +22,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# stop tracking robots.txt
+# stop tracking uneccessary files
 /public/robots.txt
+/src/reportWebVitals.js
+/src/setupTests.js
