@@ -1,8 +1,8 @@
 // useEffect, run code after performing an event
 import React, { useState, useEffect } from "react";
-import { getRandomPokemon } from "./api";
 import "./pokemonQuiz.css";
 import { addToHistory } from "./model.js";
+import { getRandomPokemon } from "./api";
 
 const PokemonQuiz = () => {
     // array with two elements, [state, function_to_update_state]
