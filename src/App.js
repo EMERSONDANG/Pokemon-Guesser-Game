@@ -7,7 +7,7 @@ import { rendering, returnRenderHistory } from "./model.js"
 function App() {
   // use a hook and a callback to switch between screens
   const [showHistory, setHistory] = useState(false);
-  const toggleHistory = () => setHistory(cur => !cur);
+  const toggleHistory = () => setHistory(!showHistory);
 
   return (
     <div className="App">
